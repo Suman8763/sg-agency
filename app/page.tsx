@@ -2,202 +2,193 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-zinc-950 text-white selection:bg-blue-500 selection:text-white font-sans">
+    <div className="min-h-screen bg-black text-white font-sans selection:bg-yellow-400 selection:text-black">
       
-      {/* Navbar with Glass Effect */}
-      <nav className="fixed top-0 w-full z-50 bg-black/50 backdrop-blur-xl border-b border-white/5">
-        <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-          <div className="text-2xl font-bold tracking-tighter bg-gradient-to-r from-blue-400 to-indigo-500 text-transparent bg-clip-text">
-            SG Agency
+      {/* Navbar - Minimal & Sticky */}
+      <nav className="fixed top-0 w-full z-50 bg-black/80 backdrop-blur-md border-b border-white/10 mix-blend-difference">
+        <div className="max-w-[1800px] mx-auto px-6 h-24 flex items-center justify-between">
+          <div className="text-3xl font-black tracking-tighter uppercase">
+            SG Agency.
           </div>
-          <div className="hidden md:flex gap-8 text-sm font-medium text-zinc-400">
-            <Link href="#services" className="hover:text-white transition-colors">Services</Link>
-            <Link href="#work" className="hover:text-white transition-colors">Work</Link>
-            <Link href="#faq" className="hover:text-white transition-colors">FAQ</Link>
+          <div className="hidden md:flex gap-12 text-sm font-bold tracking-widest uppercase">
+            <Link href="#work" className="hover:text-yellow-400 transition-colors">Work</Link>
+            <Link href="#services" className="hover:text-yellow-400 transition-colors">Expertise</Link>
+            <Link href="#contact" className="hover:text-yellow-400 transition-colors">Contact</Link>
           </div>
-          <a href="#contact" className="px-6 py-2.5 bg-white text-black text-sm font-bold rounded-full hover:bg-zinc-200 transition-all">
-            Get Audit
+          <a href="#contact" className="px-8 py-3 bg-white text-black text-xs font-black uppercase tracking-widest hover:bg-yellow-400 transition-all">
+            Let's Talk
           </a>
         </div>
       </nav>
 
-      {/* Hero Section */}
-      <section className="relative pt-32 pb-20 md:pt-48 md:pb-32 px-6 overflow-hidden">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[500px] bg-blue-600/20 rounded-full blur-[120px] -z-10 opacity-50"></div>
-        <div className="max-w-5xl mx-auto text-center space-y-8">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs text-blue-400 font-medium mb-4">
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
-            </span>
-            Accepting New Clients for 2025
-          </div>
-          <h1 className="text-5xl md:text-7xl font-bold tracking-tight leading-tight text-white">
-            We Scale Brands with <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-500 to-purple-500">Intelligent Marketing.</span>
+      {/* Hero Section - MASSIVE TYPOGRAPHY (Langoor Style) */}
+      <section className="relative pt-48 pb-24 px-6 min-h-[90vh] flex flex-col justify-center border-b border-white/10">
+        <div className="max-w-[1800px] mx-auto w-full">
+          <h1 className="text-[12vw] leading-[0.8] font-black tracking-tighter uppercase mix-blend-overlay opacity-80">
+            Digital
           </h1>
-          <p className="text-lg md:text-xl text-zinc-400 max-w-2xl mx-auto leading-relaxed">
-            Stop guessing. Start growing. We combine data science with creative strategy to turn traffic into revenue.
-          </p>
-          <div className="flex flex-col md:flex-row gap-4 justify-center pt-8">
-            <a href="#contact" className="px-8 py-4 bg-blue-600 text-white font-bold rounded-full hover:bg-blue-700 transition-all shadow-lg shadow-blue-500/25">
-              Book Your Free Strategy Call
-            </a>
-            <a href="#work" className="px-8 py-4 bg-white/5 border border-white/10 text-white font-bold rounded-full hover:bg-white/10 transition-all backdrop-blur-sm">
-              View Case Studies
-            </a>
-          </div>
-        </div>
-      </section>
-
-      {/* Trust Section */}
-      <section className="py-12 border-y border-white/5 bg-white/[0.02]">
-        <div className="max-w-7xl mx-auto px-6 text-center">
-          <p className="text-xs text-zinc-500 mb-8 uppercase tracking-widest font-semibold">Powering growth for</p>
-          <div className="flex flex-wrap justify-center gap-12 opacity-40 grayscale hover:grayscale-0 transition-all duration-500">
-            <h3 className="text-xl font-bold text-white">ACME Corp</h3>
-            <h3 className="text-xl font-bold text-white">Stark Industries</h3>
-            <h3 className="text-xl font-bold text-white">Wayne Ent</h3>
-            <h3 className="text-xl font-bold text-white">Cyberdyne</h3>
-            <h3 className="text-xl font-bold text-white">Globex</h3>
-          </div>
-        </div>
-      </section>
-
-      {/* Services Section */}
-      <section id="services" className="py-32 px-6">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-20">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Expertise</h2>
-            <p className="text-zinc-400">Everything you need to dominate your market.</p>
-          </div>
-          <div className="grid md:grid-cols-3 gap-6">
-            <div className="p-8 rounded-3xl bg-zinc-900 border border-white/5 hover:border-blue-500/50 transition-all group hover:-translate-y-1">
-              <div className="w-12 h-12 bg-blue-500/10 rounded-xl flex items-center justify-center text-2xl mb-6 text-blue-500 group-hover:bg-blue-500 group-hover:text-white transition-all">📈</div>
-              <h3 className="text-xl font-bold mb-3">SEO & Authority</h3>
-              <p className="text-zinc-400 leading-relaxed">We optimize your technical structure and content architecture to capture high-intent organic traffic.</p>
-            </div>
-            <div className="p-8 rounded-3xl bg-zinc-900 border border-white/5 hover:border-purple-500/50 transition-all group hover:-translate-y-1">
-              <div className="w-12 h-12 bg-purple-500/10 rounded-xl flex items-center justify-center text-2xl mb-6 text-purple-500 group-hover:bg-purple-500 group-hover:text-white transition-all">🎯</div>
-              <h3 className="text-xl font-bold mb-3">Paid Acquisition</h3>
-              <p className="text-zinc-400 leading-relaxed">Laser-targeted campaigns on Google and Meta that maximize ROAS (Return on Ad Spend).</p>
-            </div>
-            <div className="p-8 rounded-3xl bg-zinc-900 border border-white/5 hover:border-pink-500/50 transition-all group hover:-translate-y-1">
-              <div className="w-12 h-12 bg-pink-500/10 rounded-xl flex items-center justify-center text-2xl mb-6 text-pink-500 group-hover:bg-pink-500 group-hover:text-white transition-all">🎨</div>
-              <h3 className="text-xl font-bold mb-3">Brand Strategy</h3>
-              <p className="text-zinc-400 leading-relaxed">We craft compelling narratives and visual identities that turn passive visitors into loyal advocates.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* FAQ Section */}
-      <section id="faq" className="py-24 px-6 bg-zinc-900/50">
-        <div className="max-w-3xl mx-auto">
-          <h2 className="text-3xl font-bold mb-12 text-center">Common Questions</h2>
-          <div className="space-y-4">
-            <details className="group bg-black border border-white/5 rounded-2xl p-6 [&_summary::-webkit-details-marker]:hidden open:border-blue-500/30 transition-all">
-              <summary className="flex cursor-pointer items-center justify-between gap-1.5 text-white font-medium">
-                How much does a typical engagement cost?
-                <span className="shrink-0 rounded-full bg-white/5 p-1.5 text-white sm:p-3 group-open:-rotate-180 transition-transform">▼</span>
-              </summary>
-              <p className="mt-4 leading-relaxed text-zinc-400">
-                Our packages start at $1,500/month for startups, but most comprehensive growth campaigns range between $3k-$8k depending on ad spend and content volume.
-              </p>
-            </details>
-            <details className="group bg-black border border-white/5 rounded-2xl p-6 [&_summary::-webkit-details-marker]:hidden open:border-blue-500/30 transition-all">
-              <summary className="flex cursor-pointer items-center justify-between gap-1.5 text-white font-medium">
-                Is there a long-term contract?
-                <span className="shrink-0 rounded-full bg-white/5 p-1.5 text-white sm:p-3 group-open:-rotate-180 transition-transform">▼</span>
-              </summary>
-              <p className="mt-4 leading-relaxed text-zinc-400">
-                We believe in earning your business every month. We operate on a month-to-month basis with a 30-day cancellation notice.
-              </p>
-            </details>
-          </div>
-        </div>
-      </section>
-      {/* PROFESSIONAL CONTACT SECTION */}
-      <section id="contact" className="py-32 px-6 relative overflow-hidden">
-        {/* Background Gradient for Contact */}
-        <div className="absolute top-1/2 right-0 -translate-y-1/2 w-[600px] h-[600px] bg-blue-600/10 rounded-full blur-[100px] -z-10"></div>
-
-        <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+          <h1 className="text-[12vw] leading-[0.8] font-black tracking-tighter uppercase text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-orange-600">
+            Unleashed
+          </h1>
           
-          {/* Left Side: Copy */}
-          <div>
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">Let's talk about <br />your <span className="text-blue-500">revenue goals.</span></h2>
-            <p className="text-lg text-zinc-400 mb-8">
-              Fill out the form to book a free discovery call. We'll analyze your current digital presence and propose a growth roadmap.
+          <div className="mt-12 flex flex-col md:flex-row justify-between items-end gap-8">
+            <p className="max-w-xl text-xl md:text-2xl text-gray-400 font-medium leading-relaxed">
+              We are the anti-boring agency. We build digital experiences that provoke, engage, and convert.
             </p>
             
-            <div className="space-y-6">
-              <div className="flex items-center gap-4 text-zinc-300">
-                <div className="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center">✉️</div>
-                <div>
-                  <p className="text-xs text-zinc-500 uppercase">Email Us</p>
-                  <p className="font-medium">hello@sgagency.com</p>
-                </div>
-              </div>
-              <div className="flex items-center gap-4 text-zinc-300">
-                <div className="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center">📍</div>
-                <div>
-                  <p className="text-xs text-zinc-500 uppercase">Office</p>
-                  <p className="font-medium">Mumbai, India (Remote Global)</p>
-                </div>
-              </div>
+            {/* Scroll Down Indicator */}
+            <div className="animate-bounce">
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M7 13l5 5 5-5M7 6l5 5 5-5"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Marquee Client Section (The Moving Line) */}
+      <section className="py-12 bg-yellow-400 text-black overflow-hidden whitespace-nowrap">
+        <div className="inline-block animate-marquee">
+          <span className="text-4xl font-black mx-8 uppercase">GOOGLE • AMAZON • FLIPKART • CRED • ZOMATO • SWIGGY • </span>
+          <span className="text-4xl font-black mx-8 uppercase">GOOGLE • AMAZON • FLIPKART • CRED • ZOMATO • SWIGGY • </span>
+        </div>
+      </section>
+
+      {/* WORK GRID (The Visual Portfolio) */}
+      <section id="work" className="border-b border-white/10">
+        <div className="grid md:grid-cols-2">
+          
+          {/* Project 1 */}
+          <div className="group relative h-[600px] border-r border-b border-white/10 overflow-hidden">
+            <img 
+              src="https://images.unsplash.com/photo-1481487484168-9b930d5b7960?q=80&w=2670&auto=format&fit=crop" 
+              alt="Project 1"
+              className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-60 group-hover:opacity-100"
+            />
+            <div className="absolute bottom-0 left-0 p-12 w-full bg-gradient-to-t from-black via-black/50 to-transparent">
+              <p className="text-yellow-400 text-xs font-bold tracking-widest uppercase mb-2">Tech Brand</p>
+              <h3 className="text-4xl font-black uppercase">Dataflow Systems</h3>
             </div>
           </div>
 
-          {/* Right Side: THE FORM */}
-          <div className="bg-white/5 backdrop-blur-xl border border-white/10 p-8 rounded-3xl shadow-2xl">
-            {/* 
-                IMPORTANT: 
-                Replace the URL in the action="" quotes below with your unique Formspree link 
+          {/* Project 2 */}
+          <div className="group relative h-[600px] border-b border-white/10 overflow-hidden">
+             <img 
+              src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=2670&auto=format&fit=crop" 
+              alt="Project 2"
+              className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-60 group-hover:opacity-100"
+            />
+            <div className="absolute bottom-0 left-0 p-12 w-full bg-gradient-to-t from-black via-black/50 to-transparent">
+              <p className="text-yellow-400 text-xs font-bold tracking-widest uppercase mb-2">E-Commerce</p>
+              <h3 className="text-4xl font-black uppercase">Neon Fashion</h3>
+            </div>
+          </div>
+
+          {/* Project 3 */}
+          <div className="group relative h-[600px] border-r border-white/10 overflow-hidden">
+             <img 
+              src="https://images.unsplash.com/photo-1550009158-9ebf69173e03?q=80&w=2701&auto=format&fit=crop" 
+              alt="Project 3"
+              className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-60 group-hover:opacity-100"
+            />
+            <div className="absolute bottom-0 left-0 p-12 w-full bg-gradient-to-t from-black via-black/50 to-transparent">
+              <p className="text-yellow-400 text-xs font-bold tracking-widest uppercase mb-2">FinTech</p>
+              <h3 className="text-4xl font-black uppercase">Vault App</h3>
+            </div>
+          </div>
+
+          {/* Project 4 - Text Block */}
+          <div className="group relative h-[600px] bg-zinc-900 flex flex-col justify-center p-12">
+            <h3 className="text-5xl font-black uppercase mb-6 leading-tight">
+              We don't just <br /> make ads. <br /> We make <span className="text-yellow-400">Culture.</span>
+            </h3>
+            <a href="#contact" className="inline-flex items-center gap-4 text-xl font-bold uppercase tracking-widest hover:text-yellow-400 transition-colors">
+              Start Project <span className="text-3xl">→</span>
+            </a>
+          </div>
+
+        </div>
+      </section>
+
+      {/* Services List (Clean & Big) */}
+      <section id="services" className="py-32 px-6 max-w-[1800px] mx-auto">
+        <h2 className="text-sm font-bold text-gray-500 uppercase tracking-widest mb-16">Our Expertise</h2>
+        
+        <div className="space-y-0">
+          {/* Service Item 1 */}
+          <div className="group py-12 border-t border-b border-white/10 flex flex-col md:flex-row justify-between items-center hover:bg-white hover:text-black transition-all duration-300 cursor-pointer px-4">
+            <h3 className="text-4xl md:text-6xl font-black uppercase">Brand Strategy</h3>
+            <span className="text-lg font-mono mt-4 md:mt-0 opacity-0 group-hover:opacity-100 transition-opacity">01</span>
+          </div>
+           {/* Service Item 2 */}
+           <div className="group py-12 border-b border-white/10 flex flex-col md:flex-row justify-between items-center hover:bg-white hover:text-black transition-all duration-300 cursor-pointer px-4">
+            <h3 className="text-4xl md:text-6xl font-black uppercase">Performance Marketing</h3>
+            <span className="text-lg font-mono mt-4 md:mt-0 opacity-0 group-hover:opacity-100 transition-opacity">02</span>
+          </div>
+           {/* Service Item 3 */}
+           <div className="group py-12 border-b border-white/10 flex flex-col md:flex-row justify-between items-center hover:bg-white hover:text-black transition-all duration-300 cursor-pointer px-4">
+            <h3 className="text-4xl md:text-6xl font-black uppercase">Web Experience</h3>
+            <span className="text-lg font-mono mt-4 md:mt-0 opacity-0 group-hover:opacity-100 transition-opacity">03</span>
+          </div>
+           {/* Service Item 4 */}
+           <div className="group py-12 border-b border-white/10 flex flex-col md:flex-row justify-between items-center hover:bg-white hover:text-black transition-all duration-300 cursor-pointer px-4">
+            <h3 className="text-4xl md:text-6xl font-black uppercase">Content Production</h3>
+            <span className="text-lg font-mono mt-4 md:mt-0 opacity-0 group-hover:opacity-100 transition-opacity">04</span>
+          </div>
+        </div>
+      </section>
+
+      {/* BIG BOLD CONTACT SECTION */}
+      <section id="contact" className="py-32 px-6 bg-yellow-400 text-black">
+        <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-16">
+          
+          <div>
+            <h2 className="text-6xl md:text-8xl font-black uppercase leading-[0.9] mb-8">
+              Let's <br /> Create <br /> Chaos.
+            </h2>
+            <p className="text-xl font-bold max-w-md mb-8">
+              Ready to disrupt your industry? Fill out the form and let's get to work.
+            </p>
+            <div className="space-y-2 font-mono text-sm">
+              <p>MUMBAI • LONDON • DUBAI</p>
+              <p>hello@sgagency.com</p>
+            </div>
+          </div>
+
+          <div className="bg-black text-white p-10">
+             {/* 
+                ⚠️ PASTE YOUR FORMSPREE LINK HERE AGAIN 
             */}
-            <form action="PASTE_YOUR_FORMSPREE_LINK_HERE" method="POST" className="space-y-4">
+            <form action="PASTE_YOUR_FORMSPREE_LINK_HERE" method="POST" className="space-y-6">
+              <div className="space-y-2">
+                <label className="text-xs font-bold uppercase tracking-widest text-gray-500">Name</label>
+                <input required name="name" type="text" className="w-full bg-transparent border-b border-white/20 py-4 text-xl font-bold focus:outline-none focus:border-yellow-400 transition-colors" placeholder="Your Name" />
+              </div>
               
-              <div className="grid grid-cols-2 gap-4">
-                <div className="space-y-2">
-                  <label className="text-sm font-medium text-zinc-400">First Name</label>
-                  <input required name="name" type="text" className="w-full bg-black/50 border border-white/10 rounded-xl p-3 text-white focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all" placeholder="John" />
-                </div>
-                <div className="space-y-2">
-                  <label className="text-sm font-medium text-zinc-400">Last Name</label>
-                  <input name="lastname" type="text" className="w-full bg-black/50 border border-white/10 rounded-xl p-3 text-white focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all" placeholder="Doe" />
-                </div>
+              <div className="space-y-2">
+                <label className="text-xs font-bold uppercase tracking-widest text-gray-500">Email</label>
+                <input required name="email" type="email" className="w-full bg-transparent border-b border-white/20 py-4 text-xl font-bold focus:outline-none focus:border-yellow-400 transition-colors" placeholder="email@company.com" />
               </div>
 
               <div className="space-y-2">
-                <label className="text-sm font-medium text-zinc-400">Email Address</label>
-                <input required name="email" type="email" className="w-full bg-black/50 border border-white/10 rounded-xl p-3 text-white focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all" placeholder="john@company.com" />
+                <label className="text-xs font-bold uppercase tracking-widest text-gray-500">Project Details</label>
+                <textarea required name="message" rows={3} className="w-full bg-transparent border-b border-white/20 py-4 text-xl font-bold focus:outline-none focus:border-yellow-400 transition-colors" placeholder="Tell us what you need..."></textarea>
               </div>
 
-              <div className="space-y-2">
-                <label className="text-sm font-medium text-zinc-400">Website URL (Optional)</label>
-                <input name="website" type="text" className="w-full bg-black/50 border border-white/10 rounded-xl p-3 text-white focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all" placeholder="www.yourbrand.com" />
-              </div>
-
-              <div className="space-y-2">
-                <label className="text-sm font-medium text-zinc-400">How can we help?</label>
-                <textarea required name="message" rows={4} className="w-full bg-black/50 border border-white/10 rounded-xl p-3 text-white focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all" placeholder="I want to scale my ads..."></textarea>
-              </div>
-
-              <button type="submit" className="w-full py-4 bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-bold rounded-xl hover:opacity-90 transition-all shadow-lg transform active:scale-95">
-                Get My Free Audit
+              <button type="submit" className="w-full py-6 bg-yellow-400 text-black font-black uppercase tracking-widest hover:bg-white transition-colors mt-8">
+                Send Request
               </button>
-              
-              <p className="text-xs text-center text-zinc-500">No credit card required. Free 15-min consultation.</p>
             </form>
           </div>
 
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="py-12 bg-black border-t border-white/10 text-center">
-         <div className="text-2xl font-bold tracking-tighter text-white mb-4">SG Agency</div>
-         <p className="text-zinc-500 text-sm">&copy; 2024 SG Digital Agency. Built for performance.</p>
+      <footer className="bg-black text-white py-12 px-6 border-t border-white/10 flex justify-between items-end">
+        <div className="text-[10vw] font-black leading-none text-zinc-900 select-none">SG</div>
+        <div className="text-right">
+          <p className="text-sm text-gray-500">&copy; 2025 SG Agency.</p>
+        </div>
       </footer>
 
     </div>
