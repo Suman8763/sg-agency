@@ -49,8 +49,8 @@ export default function Home() {
       {/* Marquee Client Section (The Moving Line) */}
       <section className="py-12 bg-yellow-400 text-black overflow-hidden whitespace-nowrap">
         <div className="inline-block animate-marquee">
-          <span className="text-4xl font-black mx-8 uppercase">GOOGLE • AMAZON • FLIPKART • CRED • ZOMATO • SWIGGY • </span>
-          <span className="text-4xl font-black mx-8 uppercase">GOOGLE • AMAZON • FLIPKART • CRED • ZOMATO • SWIGGY • </span>
+          <span className="text-4xl font-black mx-8 uppercase">STRATEGY • GROWTH • ROI • MARKETING • </span>
+          <span className="text-4xl font-black mx-8 uppercase">STRATEGY • GROWTH • ROI • MARKETING • </span>
         </div>
       </section>
 
@@ -150,8 +150,8 @@ export default function Home() {
               Ready to disrupt your industry? Fill out the form and let's get to work.
             </p>
             <div className="space-y-2 font-mono text-sm">
-              <p>MUMBAI • LONDON • DUBAI</p>
-              <p>hello@sgagency.com</p>
+              <p>Pune</p>
+              <p>sumandalai94@gmail.com</p>
             </div>
           </div>
 
