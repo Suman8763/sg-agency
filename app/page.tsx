@@ -2,20 +2,20 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-black text-white selection:bg-blue-500 selection:text-white font-sans">
+    <div className="min-h-screen bg-zinc-950 text-white selection:bg-blue-500 selection:text-white font-sans">
       
-      {/* Navbar */}
-      <nav className="fixed top-0 w-full z-50 bg-black/80 backdrop-blur-md border-b border-white/10">
+      {/* Navbar with Glass Effect */}
+      <nav className="fixed top-0 w-full z-50 bg-black/50 backdrop-blur-xl border-b border-white/5">
         <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-          <div className="text-2xl font-bold tracking-tighter bg-gradient-to-r from-blue-400 to-purple-500 text-transparent bg-clip-text">
+          <div className="text-2xl font-bold tracking-tighter bg-gradient-to-r from-blue-400 to-indigo-500 text-transparent bg-clip-text">
             SG Agency
           </div>
-          <div className="hidden md:flex gap-8 text-sm font-medium text-gray-300">
+          <div className="hidden md:flex gap-8 text-sm font-medium text-zinc-400">
             <Link href="#services" className="hover:text-white transition-colors">Services</Link>
             <Link href="#work" className="hover:text-white transition-colors">Work</Link>
             <Link href="#faq" className="hover:text-white transition-colors">FAQ</Link>
           </div>
-          <a href="#contact" className="px-5 py-2 bg-white text-black text-sm font-bold rounded-full hover:bg-gray-200 transition-all">
+          <a href="#contact" className="px-6 py-2.5 bg-white text-black text-sm font-bold rounded-full hover:bg-zinc-200 transition-all">
             Get Audit
           </a>
         </div>
@@ -23,212 +23,181 @@ export default function Home() {
 
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 md:pt-48 md:pb-32 px-6 overflow-hidden">
-        <div className="absolute top-20 left-1/2 -translate-x-1/2 w-[500px] h-[500px] bg-blue-500/20 rounded-full blur-[100px] -z-10"></div>
-        
-        <div className="max-w-4xl mx-auto text-center space-y-8">
-          <h1 className="text-5xl md:text-7xl font-bold tracking-tight leading-tight">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[500px] bg-blue-600/20 rounded-full blur-[120px] -z-10 opacity-50"></div>
+        <div className="max-w-5xl mx-auto text-center space-y-8">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs text-blue-400 font-medium mb-4">
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
+            </span>
+            Accepting New Clients for 2025
+          </div>
+          <h1 className="text-5xl md:text-7xl font-bold tracking-tight leading-tight text-white">
             We Scale Brands with <br />
-            <span className="text-blue-500">Data-Driven</span> Marketing.
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-500 to-purple-500">Intelligent Marketing.</span>
           </h1>
-          <p className="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto">
-            Stop guessing. Start growing. We combine creative strategy with technical precision to turn clicks into customers.
+          <p className="text-lg md:text-xl text-zinc-400 max-w-2xl mx-auto leading-relaxed">
+            Stop guessing. Start growing. We combine data science with creative strategy to turn traffic into revenue.
           </p>
-          <div className="flex flex-col md:flex-row gap-4 justify-center pt-4">
-            <a href="#contact" className="px-8 py-4 bg-blue-600 text-white font-bold rounded-full hover:bg-blue-700 transition-all">
-              Start Your Growth
+          <div className="flex flex-col md:flex-row gap-4 justify-center pt-8">
+            <a href="#contact" className="px-8 py-4 bg-blue-600 text-white font-bold rounded-full hover:bg-blue-700 transition-all shadow-lg shadow-blue-500/25">
+              Book Your Free Strategy Call
             </a>
-            <a href="#work" className="px-8 py-4 bg-white/5 border border-white/10 text-white font-bold rounded-full hover:bg-white/10 transition-all">
-              View Our Work
+            <a href="#work" className="px-8 py-4 bg-white/5 border border-white/10 text-white font-bold rounded-full hover:bg-white/10 transition-all backdrop-blur-sm">
+              View Case Studies
             </a>
           </div>
         </div>
       </section>
 
-      {/* NEW: Client Trust Section (Logos) */}
-      <section className="py-10 border-y border-white/5 bg-white/5">
+      {/* Trust Section */}
+      <section className="py-12 border-y border-white/5 bg-white/[0.02]">
         <div className="max-w-7xl mx-auto px-6 text-center">
-          <p className="text-sm text-gray-500 mb-8 uppercase tracking-widest">Trusted by innovative companies</p>
-          <div className="flex flex-wrap justify-center gap-8 md:gap-16 opacity-50 grayscale hover:grayscale-0 transition-all duration-500">
-             {/* You can replace these with real logo images later */}
-            <span className="text-xl font-bold text-white">Acme Corp</span>
-            <span className="text-xl font-bold text-white">GlobalTech</span>
-            <span className="text-xl font-bold text-white">Nebula</span>
-            <span className="text-xl font-bold text-white">Trio</span>
-            <span className="text-xl font-bold text-white">FoxRun</span>
+          <p className="text-xs text-zinc-500 mb-8 uppercase tracking-widest font-semibold">Powering growth for</p>
+          <div className="flex flex-wrap justify-center gap-12 opacity-40 grayscale hover:grayscale-0 transition-all duration-500">
+            <h3 className="text-xl font-bold text-white">ACME Corp</h3>
+            <h3 className="text-xl font-bold text-white">Stark Industries</h3>
+            <h3 className="text-xl font-bold text-white">Wayne Ent</h3>
+            <h3 className="text-xl font-bold text-white">Cyberdyne</h3>
+            <h3 className="text-xl font-bold text-white">Globex</h3>
           </div>
         </div>
       </section>
 
       {/* Services Section */}
-      <section id="services" className="py-24 px-6 bg-zinc-950">
+      <section id="services" className="py-32 px-6">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold mb-16 text-center">Our Expertise</h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="p-8 rounded-2xl bg-white/5 border border-white/10 hover:border-blue-500/50 transition-all group">
-              <div className="text-4xl mb-6 group-hover:scale-110 transition-transform duration-300">🚀</div>
-              <h3 className="text-xl font-bold mb-3">SEO Optimization</h3>
-              <p className="text-gray-400">Rank higher on Google. We optimize your technical structure and content to drive organic traffic.</p>
+          <div className="text-center mb-20">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Expertise</h2>
+            <p className="text-zinc-400">Everything you need to dominate your market.</p>
+          </div>
+          <div className="grid md:grid-cols-3 gap-6">
+            <div className="p-8 rounded-3xl bg-zinc-900 border border-white/5 hover:border-blue-500/50 transition-all group hover:-translate-y-1">
+              <div className="w-12 h-12 bg-blue-500/10 rounded-xl flex items-center justify-center text-2xl mb-6 text-blue-500 group-hover:bg-blue-500 group-hover:text-white transition-all">📈</div>
+              <h3 className="text-xl font-bold mb-3">SEO & Authority</h3>
+              <p className="text-zinc-400 leading-relaxed">We optimize your technical structure and content architecture to capture high-intent organic traffic.</p>
             </div>
-            <div className="p-8 rounded-2xl bg-white/5 border border-white/10 hover:border-purple-500/50 transition-all group">
-              <div className="text-4xl mb-6 group-hover:scale-110 transition-transform duration-300">🎯</div>
-              <h3 className="text-xl font-bold mb-3">PPC Campaigns</h3>
-              <p className="text-gray-400">Maximize ROI. We manage Google and Meta ads with precision targeting and constant A/B testing.</p>
+            <div className="p-8 rounded-3xl bg-zinc-900 border border-white/5 hover:border-purple-500/50 transition-all group hover:-translate-y-1">
+              <div className="w-12 h-12 bg-purple-500/10 rounded-xl flex items-center justify-center text-2xl mb-6 text-purple-500 group-hover:bg-purple-500 group-hover:text-white transition-all">🎯</div>
+              <h3 className="text-xl font-bold mb-3">Paid Acquisition</h3>
+              <p className="text-zinc-400 leading-relaxed">Laser-targeted campaigns on Google and Meta that maximize ROAS (Return on Ad Spend).</p>
             </div>
-            <div className="p-8 rounded-2xl bg-white/5 border border-white/10 hover:border-pink-500/50 transition-all group">
-              <div className="text-4xl mb-6 group-hover:scale-110 transition-transform duration-300">✨</div>
-              <h3 className="text-xl font-bold mb-3">Content Strategy</h3>
-              <p className="text-gray-400">Tell your story. We create compelling content that engages your audience and builds brand authority.</p>
+            <div className="p-8 rounded-3xl bg-zinc-900 border border-white/5 hover:border-pink-500/50 transition-all group hover:-translate-y-1">
+              <div className="w-12 h-12 bg-pink-500/10 rounded-xl flex items-center justify-center text-2xl mb-6 text-pink-500 group-hover:bg-pink-500 group-hover:text-white transition-all">🎨</div>
+              <h3 className="text-xl font-bold mb-3">Brand Strategy</h3>
+              <p className="text-zinc-400 leading-relaxed">We craft compelling narratives and visual identities that turn passive visitors into loyal advocates.</p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* NEW: Testimonials Section */}
-      <section id="work" className="py-24 px-6">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold mb-16 text-center">What Our Clients Say</h2>
-          <div className="grid md:grid-cols-2 gap-8">
-            {/* Testimonial 1 */}
-            <div className="p-8 rounded-2xl bg-gradient-to-br from-white/5 to-transparent border border-white/10">
-              <div className="flex text-blue-500 mb-4">★★★★★</div>
-              <p className="text-lg text-gray-300 mb-6">"SG Agency completely transformed our online presence. Our leads doubled in just 3 months. The best investment we made this year."</p>
-              <div className="flex items-center gap-4">
-                <div className="w-10 h-10 rounded-full bg-gray-600"></div> {/* Placeholder for user image */}
-                <div>
-                  <h4 className="font-bold">Sarah Jenkins</h4>
-                  <p className="text-sm text-gray-500">CEO, TechFlow</p>
-                </div>
-              </div>
-            </div>
-             {/* Testimonial 2 */}
-            <div className="p-8 rounded-2xl bg-gradient-to-br from-white/5 to-transparent border border-white/10">
-              <div className="flex text-blue-500 mb-4">★★★★★</div>
-              <p className="text-lg text-gray-300 mb-6">"I didn't know where to start with SEO. Suman and the team guided me every step of the way. Professional, fast, and effective."</p>
-              <div className="flex items-center gap-4">
-                <div className="w-10 h-10 rounded-full bg-gray-600"></div>
-                <div>
-                  <h4 className="font-bold">David Chen</h4>
-                  <p className="text-sm text-gray-500">Founder, Bloom & Co</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* NEW: FAQ Section */}
-      <section id="faq" className="py-24 px-6 bg-zinc-950">
+      {/* FAQ Section */}
+      <section id="faq" className="py-24 px-6 bg-zinc-900/50">
         <div className="max-w-3xl mx-auto">
-          <h2 className="text-3xl font-bold mb-12 text-center">Frequently Asked Questions</h2>
+          <h2 className="text-3xl font-bold mb-12 text-center">Common Questions</h2>
           <div className="space-y-4">
+            <details className="group bg-black border border-white/5 rounded-2xl p-6 [&_summary::-webkit-details-marker]:hidden open:border-blue-500/30 transition-all">
+              <summary className="flex cursor-pointer items-center justify-between gap-1.5 text-white font-medium">
+                How much does a typical engagement cost?
+                <span className="shrink-0 rounded-full bg-white/5 p-1.5 text-white sm:p-3 group-open:-rotate-180 transition-transform">▼</span>
+              </summary>
+              <p className="mt-4 leading-relaxed text-zinc-400">
+                Our packages start at $1,500/month for startups, but most comprehensive growth campaigns range between $3k-$8k depending on ad spend and content volume.
+              </p>
+            </details>
+            <details className="group bg-black border border-white/5 rounded-2xl p-6 [&_summary::-webkit-details-marker]:hidden open:border-blue-500/30 transition-all">
+              <summary className="flex cursor-pointer items-center justify-between gap-1.5 text-white font-medium">
+                Is there a long-term contract?
+                <span className="shrink-0 rounded-full bg-white/5 p-1.5 text-white sm:p-3 group-open:-rotate-180 transition-transform">▼</span>
+              </summary>
+              <p className="mt-4 leading-relaxed text-zinc-400">
+                We believe in earning your business every month. We operate on a month-to-month basis with a 30-day cancellation notice.
+              </p>
+            </details>
+          </div>
+        </div>
+      </section>
+      {/* PROFESSIONAL CONTACT SECTION */}
+      <section id="contact" className="py-32 px-6 relative overflow-hidden">
+        {/* Background Gradient for Contact */}
+        <div className="absolute top-1/2 right-0 -translate-y-1/2 w-[600px] h-[600px] bg-blue-600/10 rounded-full blur-[100px] -z-10"></div>
+
+        <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+          
+          {/* Left Side: Copy */}
+          <div>
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">Let's talk about <br />your <span className="text-blue-500">revenue goals.</span></h2>
+            <p className="text-lg text-zinc-400 mb-8">
+              Fill out the form to book a free discovery call. We'll analyze your current digital presence and propose a growth roadmap.
+            </p>
             
-            <details className="group bg-white/5 border border-white/10 rounded-xl p-6 [&_summary::-webkit-details-marker]:hidden">
-              <summary className="flex cursor-pointer items-center justify-between gap-1.5 text-white">
-                <h2 className="text-lg font-medium">How quickly can I see results?</h2>
-                <span className="shrink-0 rounded-full bg-white/10 p-1.5 text-white sm:p-3 group-open:-rotate-180 transition-transform">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="size-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
-                  </svg>
-                </span>
-              </summary>
-              <p className="mt-4 leading-relaxed text-gray-300">
-                For PPC ads, you can see results instantly. For SEO, it typically takes 3-6 months to see significant organic growth. We provide monthly reports so you can track progress.
-              </p>
-            </details>
-
-            <details className="group bg-white/5 border border-white/10 rounded-xl p-6 [&_summary::-webkit-details-marker]:hidden">
-              <summary className="flex cursor-pointer items-center justify-between gap-1.5 text-white">
-                <h2 className="text-lg font-medium">Do you work with small businesses?</h2>
-                <span className="shrink-0 rounded-full bg-white/10 p-1.5 text-white sm:p-3 group-open:-rotate-180 transition-transform">
-                   <svg xmlns="http://www.w3.org/2000/svg" className="size-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
-                  </svg>
-                </span>
-              </summary>
-              <p className="mt-4 leading-relaxed text-gray-300">
-                Absolutely! We have specific packages designed for startups and small businesses looking to get their first 100 customers.
-              </p>
-            </details>
-
-            <details className="group bg-white/5 border border-white/10 rounded-xl p-6 [&_summary::-webkit-details-marker]:hidden">
-              <summary className="flex cursor-pointer items-center justify-between gap-1.5 text-white">
-                <h2 className="text-lg font-medium">What makes you different?</h2>
-                <span className="shrink-0 rounded-full bg-white/10 p-1.5 text-white sm:p-3 group-open:-rotate-180 transition-transform">
-                   <svg xmlns="http://www.w3.org/2000/svg" className="size-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
-                  </svg>
-                </span>
-              </summary>
-              <p className="mt-4 leading-relaxed text-gray-300">
-                We are data-first. We don't just make things look pretty; we focus on ROI (Return on Investment). If it doesn't make you money, we don't do it.
-              </p>
-            </details>
-
+            <div className="space-y-6">
+              <div className="flex items-center gap-4 text-zinc-300">
+                <div className="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center">✉️</div>
+                <div>
+                  <p className="text-xs text-zinc-500 uppercase">Email Us</p>
+                  <p className="font-medium">hello@sgagency.com</p>
+                </div>
+              </div>
+              <div className="flex items-center gap-4 text-zinc-300">
+                <div className="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center">📍</div>
+                <div>
+                  <p className="text-xs text-zinc-500 uppercase">Office</p>
+                  <p className="font-medium">Mumbai, India (Remote Global)</p>
+                </div>
+              </div>
+            </div>
           </div>
+
+          {/* Right Side: THE FORM */}
+          <div className="bg-white/5 backdrop-blur-xl border border-white/10 p-8 rounded-3xl shadow-2xl">
+            {/* 
+                IMPORTANT: 
+                Replace the URL in the action="" quotes below with your unique Formspree link 
+            */}
+            <form action="PASTE_YOUR_FORMSPREE_LINK_HERE" method="POST" className="space-y-4">
+              
+              <div className="grid grid-cols-2 gap-4">
+                <div className="space-y-2">
+                  <label className="text-sm font-medium text-zinc-400">First Name</label>
+                  <input required name="name" type="text" className="w-full bg-black/50 border border-white/10 rounded-xl p-3 text-white focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all" placeholder="John" />
+                </div>
+                <div className="space-y-2">
+                  <label className="text-sm font-medium text-zinc-400">Last Name</label>
+                  <input name="lastname" type="text" className="w-full bg-black/50 border border-white/10 rounded-xl p-3 text-white focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all" placeholder="Doe" />
+                </div>
+              </div>
+
+              <div className="space-y-2">
+                <label className="text-sm font-medium text-zinc-400">Email Address</label>
+                <input required name="email" type="email" className="w-full bg-black/50 border border-white/10 rounded-xl p-3 text-white focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all" placeholder="john@company.com" />
+              </div>
+
+              <div className="space-y-2">
+                <label className="text-sm font-medium text-zinc-400">Website URL (Optional)</label>
+                <input name="website" type="text" className="w-full bg-black/50 border border-white/10 rounded-xl p-3 text-white focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all" placeholder="www.yourbrand.com" />
+              </div>
+
+              <div className="space-y-2">
+                <label className="text-sm font-medium text-zinc-400">How can we help?</label>
+                <textarea required name="message" rows={4} className="w-full bg-black/50 border border-white/10 rounded-xl p-3 text-white focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all" placeholder="I want to scale my ads..."></textarea>
+              </div>
+
+              <button type="submit" className="w-full py-4 bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-bold rounded-xl hover:opacity-90 transition-all shadow-lg transform active:scale-95">
+                Get My Free Audit
+              </button>
+              
+              <p className="text-xs text-center text-zinc-500">No credit card required. Free 15-min consultation.</p>
+            </form>
+          </div>
+
         </div>
       </section>
 
-      {/* Contact Section */}
-      <section id="contact" className="py-24 px-6">
-        <div className="max-w-2xl mx-auto text-center bg-gradient-to-b from-zinc-900 to-black p-12 rounded-3xl border border-white/10">
-          <h2 className="text-3xl font-bold mb-6">Ready to Scale?</h2>
-          <p className="text-gray-400 mb-8">
-            Book a free 15-minute discovery call. No pressure, just strategy.
-          </p>
-          <form className="space-y-4 text-left">
-            <div>
-              <label className="block text-sm font-medium text-gray-400 mb-1">Your Name</label>
-              <input type="text" className="w-full bg-white/5 border border-white/10 rounded-lg p-3 text-white focus:outline-none focus:border-blue-500 transition-colors" placeholder="John Doe" />
-            </div>
-            <div>
-              <label className="block text-sm font-medium text-gray-400 mb-1">Email Address</label>
-              <input type="email" className="w-full bg-white/5 border border-white/10 rounded-lg p-3 text-white focus:outline-none focus:border-blue-500 transition-colors" placeholder="john@company.com" />
-            </div>
-            <div>
-              <label className="block text-sm font-medium text-gray-400 mb-1">Message</label>
-              <textarea rows={4} className="w-full bg-white/5 border border-white/10 rounded-lg p-3 text-white focus:outline-none focus:border-blue-500 transition-colors" placeholder="Tell us about your business..."></textarea>
-            </div>
-            <button className="w-full py-4 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-700 transition-all">
-              Send Message
-            </button>
-          </form>
-        </div>
-      </section>
-
-      {/* Enhanced Footer */}
-      <footer className="py-12 bg-zinc-950 border-t border-white/10">
-        <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-8 mb-8">
-          <div>
-            <h4 className="text-xl font-bold mb-4">SG Agency</h4>
-            <p className="text-gray-400 text-sm">Helping brands grow through data-driven digital marketing strategies.</p>
-          </div>
-          <div>
-            <h4 className="font-bold mb-4">Services</h4>
-            <ul className="space-y-2 text-sm text-gray-400">
-              <li><a href="#" className="hover:text-white">SEO</a></li>
-              <li><a href="#" className="hover:text-white">PPC Advertising</a></li>
-              <li><a href="#" className="hover:text-white">Content Marketing</a></li>
-            </ul>
-          </div>
-          <div>
-            <h4 className="font-bold mb-4">Company</h4>
-            <ul className="space-y-2 text-sm text-gray-400">
-              <li><a href="#about" className="hover:text-white">About Us</a></li>
-              <li><a href="#work" className="hover:text-white">Case Studies</a></li>
-              <li><a href="#contact" className="hover:text-white">Contact</a></li>
-            </ul>
-          </div>
-          <div>
-            <h4 className="font-bold mb-4">Legal</h4>
-            <ul className="space-y-2 text-sm text-gray-400">
-              <li><a href="#" className="hover:text-white">Privacy Policy</a></li>
-              <li><a href="#" className="hover:text-white">Terms of Service</a></li>
-            </ul>
-          </div>
-        </div>
-        <div className="text-center text-gray-600 text-sm pt-8 border-t border-white/5">
-          <p>&copy; 2024 SG Digital Agency. All rights reserved.</p>
-        </div>
+      {/* Footer */}
+      <footer className="py-12 bg-black border-t border-white/10 text-center">
+         <div className="text-2xl font-bold tracking-tighter text-white mb-4">SG Agency</div>
+         <p className="text-zinc-500 text-sm">&copy; 2024 SG Digital Agency. Built for performance.</p>
       </footer>
 
     </div>
