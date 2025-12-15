@@ -4,62 +4,11 @@
 
 :root {
   --foreground-rgb: 255, 255, 255;
-  --background-start-rgb: 5, 5, 5;
+  --background-start-rgb: 0, 0, 0;
   --background-end-rgb: 0, 0, 0;
-  --neon-lime: #ccff00;
-}
-
-html {
-  scroll-behavior: smooth; /* Makes clicking "Contact" slide smoothly */
-  height: 100%;
 }
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-  -webkit-font-smoothing: antialiased; /* Makes text look thinner/crisper (Apple style) */
-  -moz-osx-font-smoothing: grayscale;
-}
-
-/* --- THE "EXPENSIVE" SCROLLBAR --- */
-::-webkit-scrollbar {
-  width: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: #050505;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #333;
-  border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #ccff00; /* Turns Lime when you grab it */
-}
-
-/* --- TEXT SELECTION (High End Detail) --- */
-::selection {
-  background-color: #ccff00;
-  color: #000;
-}
-
-/* --- UTILITIES --- */
-.transform-3d {
-  transform-style: preserve-3d;
-}
-
-/* Hide scrollbar for Chrome/Safari/Opera but keep functionality */
-.no-scrollbar::-webkit-scrollbar {
-  display: none;
-}
-.no-scrollbar {
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
+  background: black;
 }

@@ -1,285 +1,75 @@
-"use client";
-
-import React, { useState, useRef, useEffect } from "react";
-import { motion, useScroll, useTransform, useSpring, useInView } from "framer-motion";
-import { ArrowRight, Globe, BarChart3, Zap, Menu, X, ChevronDown } from "lucide-react";
 import Link from "next/link";
 
-// --- COMPONENTS ---
-
-// 1. The "Kinetic" Hero Text Component
-const KineticText = ({ text }: { text: string }) => {
-  return (
-    <div className="flex flex-wrap justify-center overflow-hidden">
-      {text.split("").map((char, i) => (
-        <motion.span
-          key={i}
-          initial={{ y: 100, opacity: 0, rotateX: -90 }}
-          animate={{ y: 0, opacity: 1, rotateX: 0 }}
-          transition={{
-            duration: 1.2,
-            delay: i * 0.05,
-            ease: [0.22, 1, 0.36, 1], // Custom "Apple-style" ease
-          }}
-          className="inline-block origin-bottom transform-3d"
-        >
-          {char === " " ? "\u00A0" : char}
-        </motion.span>
-      ))}
-    </div>
-  );
-};
-
-// 2. Strategic Card Component
-const StrategyCard = ({ number, title, content, delay }: any) => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
-
-  return (
-    <motion.div
-      ref={ref}
-      initial={{ opacity: 0, y: 50 }}
-      animate={isInView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.8, delay: delay, ease: "easeOut" }}
-      className="group relative border-t border-white/10 py-12 md:py-16 hover:bg-white/[0.02] transition-colors"
-    >
-      <div className="max-w-[1920px] mx-auto px-6 grid grid-cols-1 md:grid-cols-12 gap-8">
-        <div className="col-span-2">
-          <span className="font-mono text-xs text-neutral-500 group-hover:text-[#ccff00] transition-colors">
-            {number}
-          </span>
-        </div>
-        <div className="col-span-4">
-          <h3 className="text-3xl md:text-4xl font-light tracking-tight text-white group-hover:translate-x-4 transition-transform duration-500">
-            {title}
-          </h3>
-        </div>
-        <div className="col-span-6">
-          <p className="text-lg text-neutral-400 font-light leading-relaxed max-w-2xl group-hover:text-white transition-colors duration-500">
-            {content}
-          </p>
-        </div>
-      </div>
-    </motion.div>
-  );
-};
-
-// 3. Main Page
 export default function Home() {
-  const { scrollYProgress } = useScroll();
-  const scaleX = useSpring(scrollYProgress, {
-    stiffness: 100,
-    damping: 30,
-    restDelta: 0.001
-  });
-
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-
   return (
     <div className="min-h-screen bg-[#050505] text-[#e1e1e1] font-sans selection:bg-[#ccff00] selection:text-black overflow-x-hidden">
       
-      {/* GLOBAL PROGRESS BAR (Like Top News Sites) */}
-      <motion.div
-        className="fixed top-0 left-0 right-0 h-1 bg-[#ccff00] origin-left z-[60]"
-        style={{ scaleX }}
-      />
+      {/* BACKGROUND NOISE TEXTURE (The "Expensive" Feel) */}
+      <div className="fixed inset-0 z-0 opacity-[0.03] pointer-events-none" 
+           style={{backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`}}>
+      </div>
 
-      {/* BACKGROUND TEXTURE (Noise) */}
-      <div className="fixed inset-0 z-0 opacity-[0.04] pointer-events-none mix-blend-overlay"
-           style={{backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`}}
-      />
-
-      {/* NAVIGATION */}
-      <nav className="fixed top-0 w-full z-50 px-6 py-6 mix-blend-difference flex justify-between items-center">
-        <div className="flex items-center gap-2">
-          <div className="w-3 h-3 bg-[#ccff00] rounded-full animate-pulse" />
-          <span className="font-bold tracking-tighter text-lg">GS DIGITAL</span>
+      {/* HEADER: 4-Corner Navigation (Very Modern) */}
+      <nav className="fixed top-0 w-full z-50 px-6 py-6 mix-blend-difference flex justify-between items-start pointer-events-none">
+        <div className="pointer-events-auto">
+          <span className="font-mono text-xs text-[#ccff00] tracking-widest block mb-1">AGENCY OS v2.0</span>
+          <h1 className="text-2xl font-black tracking-tighter leading-none">GS<br/>DIGITAL</h1>
         </div>
         
-        <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="md:hidden text-white">
-          {isMenuOpen ? <X /> : <Menu />}
-        </button>
-
-        <div className="hidden md:flex gap-12">
-           {['Philosophy', 'Capabilities', 'Work', 'Intelligence'].map((item) => (
-             <a key={item} href={`#${item.toLowerCase()}`} className="text-xs font-bold uppercase tracking-widest hover:text-[#ccff00] transition-colors">
-               {item}
-             </a>
-           ))}
+        <div className="hidden md:flex gap-12 pointer-events-auto bg-[#050505]/80 backdrop-blur-md px-6 py-3 rounded-full border border-white/10">
+          <Link href="#capabilities" className="text-xs font-bold uppercase tracking-widest hover:text-[#ccff00] transition-colors">Capabilities</Link>
+          <Link href="#strategy" className="text-xs font-bold uppercase tracking-widest hover:text-[#ccff00] transition-colors">Strategy</Link>
+          <Link href="#contact" className="text-xs font-bold uppercase tracking-widest hover:text-[#ccff00] transition-colors">Contact</Link>
         </div>
 
-        <a href="#contact" className="hidden md:block border border-white/20 px-6 py-2 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-[#ccff00] hover:text-black transition-all">
-          Start Project
-        </a>
+        <div className="pointer-events-auto">
+           <a href="#contact" className="group relative flex items-center gap-3 overflow-hidden">
+             <span className="text-sm font-bold uppercase tracking-wider group-hover:translate-x-2 transition-transform">Start Project</span>
+             <div className="w-2 h-2 bg-[#ccff00] rounded-full animate-pulse"></div>
+           </a>
+        </div>
       </nav>
 
-      {/* HERO SECTION */}
-      <section className="relative z-10 min-h-screen flex flex-col justify-center items-center pt-20">
-        <div className="max-w-[1920px] w-full px-6">
-          <div className="mb-8 flex justify-center">
-            <span className="px-3 py-1 border border-white/10 rounded-full text-[10px] uppercase tracking-widest text-[#ccff00]">
-              System Architecture v3.0
-            </span>
-          </div>
-          
-          <h1 className="text-[10vw] leading-[0.85] font-black tracking-tighter uppercase text-center mb-12 mix-blend-difference">
-            <KineticText text="Digital" />
-            <span className="block h-4 md:h-8" /> {/* Spacer */}
-            <KineticText text="Sovereignty" />
-          </h1>
-
-          <div className="flex flex-col items-center max-w-2xl mx-auto text-center gap-8">
-            <p className="text-xl md:text-2xl font-light text-neutral-400 leading-relaxed">
-              We do not build "websites." We engineer <span className="text-white font-medium">revenue ecosystems</span> for brands that have outgrown the ordinary.
-            </p>
-            <motion.div 
-               initial={{ opacity: 0, y: 20 }}
-               animate={{ opacity: 1, y: 0 }}
-               transition={{ delay: 1.5, duration: 1 }}
-               className="flex gap-4"
-            >
-              <a href="#contact" className="bg-[#ccff00] text-black px-8 py-4 font-bold uppercase tracking-wider hover:bg-white transition-colors">
-                Initiate Sequence
-              </a>
-              <a href="#philosophy" className="border border-white/20 px-8 py-4 font-bold uppercase tracking-wider hover:bg-white/10 transition-colors">
-                Read Manifesto
-              </a>
-            </motion.div>
-          </div>
-        </div>
-        
-        {/* Scroll Indicator */}
-        <motion.div 
-          animate={{ y: [0, 10, 0] }}
-          transition={{ duration: 2, repeat: Infinity }}
-          className="absolute bottom-12 left-1/2 -translate-x-1/2 opacity-50"
-        >
-          <ChevronDown className="w-8 h-8 text-[#ccff00]" />
-        </motion.div>
-      </section>
-
-      {/* PHILOSOPHY SECTION (Deep Content) */}
-      <section id="philosophy" className="relative z-10 py-32 px-6 border-t border-white/10 bg-[#080808]">
-        <div className="max-w-[1920px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-20">
-          <div>
-            <h2 className="text-xs font-mono text-[#ccff00] mb-8 uppercase tracking-widest sticky top-32">
-              01 // The Philosophy
-            </h2>
-            <h3 className="text-5xl md:text-7xl font-bold tracking-tight leading-[0.9] mb-12">
-              The Old Web <br/> Is Dead.
-            </h3>
-          </div>
-          <div className="space-y-12 text-lg md:text-xl font-light leading-relaxed text-neutral-400">
-            <p>
-              <strong className="text-white">Most agencies are selling you 2018.</strong> They sell you a static brochure and call it a digital presence. They sell you "traffic" but ignore conversion physics.
-            </p>
-            <p>
-              At GS Digital, we operate differently. We view your digital presence as a <strong className="text-white">living organism</strong>. It must breathe, adapt, and evolve. We fuse high-fidelity aesthetics with brutal backend automation.
-            </p>
-            <p>
-              We don't care about "likes." We care about <strong className="text-[#ccff00]">Velocity of Capital</strong>—how fast we can turn a stranger into a loyal advocate for your brand.
-            </p>
-            <div className="pt-8 border-t border-white/10 grid grid-cols-3 gap-8">
-              <div>
-                <div className="text-3xl font-bold text-white mb-2">0.2s</div>
-                <div className="text-xs text-neutral-500 uppercase">Load Latency</div>
-              </div>
-              <div>
-                <div className="text-3xl font-bold text-white mb-2">98%</div>
-                <div className="text-xs text-neutral-500 uppercase">Retention Rate</div>
-              </div>
-              <div>
-                <div className="text-3xl font-bold text-white mb-2">4x</div>
-                <div className="text-xs text-neutral-500 uppercase">Avg. ROI</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* STRATEGIC PROCESS (The Content You Wanted) */}
-      <section id="capabilities" className="relative z-10 bg-[#050505]">
-        <div className="py-20 px-6 max-w-[1920px] mx-auto">
-          <h2 className="text-xs font-mono text-[#ccff00] mb-8 uppercase tracking-widest">
-            02 // Strategic Architecture
-          </h2>
-        </div>
-
-        <StrategyCard 
-          number="01" 
-          title="Forensic Audit" 
-          content="We don't guess. We deploy deep-dive analytics to map your current user journey, identify leakage points, and spy on competitor infrastructure. We find the money you are leaving on the table."
-          delay={0}
-        />
-        <StrategyCard 
-          number="02" 
-          title="UX Engineering" 
-          content="We design systems, not just pages. Using Next.js and behavioral psychology, we craft interfaces that reduce friction to zero. Every pixel has a commercial purpose."
-          delay={0.1}
-        />
-        <StrategyCard 
-          number="03" 
-          title="Automated Nurture" 
-          content="Traffic is useless without retention. We build custom AI Agents and Email flows that grab leads and nurture them 24/7. Your business sells while you sleep."
-          delay={0.2}
-        />
-        <StrategyCard 
-          number="04" 
-          title="Scale & Optimization" 
-          content="Launch is just day one. We monitor real-time dashboards, running continuous A/B tests to squeeze every ounce of performance from your ad spend."
-          delay={0.3}
-        />
-      </section>
-
-      {/* INTELLIGENCE / AUTOMATION VISUAL */}
-      <section id="intelligence" className="relative z-10 py-32 px-6 border-t border-white/10 overflow-hidden">
+      {/* HERO SECTION: Editorial Layout */}
+      <section className="relative z-10 pt-40 pb-20 px-4 md:px-12 border-b border-white/10">
         <div className="max-w-[1920px] mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
             
-            {/* Left Content */}
-            <div>
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[#ccff00]/30 text-[#ccff00] text-xs font-mono uppercase mb-8">
-                 <Zap size={12} /> Live Simulation
+            {/* Left Column: The Manifesto */}
+            <div className="col-span-12 md:col-span-8">
+              <h1 className="text-[13vw] md:text-[8vw] leading-[0.85] font-black tracking-tighter uppercase mb-12">
+                Brand <br/>
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#ccff00] to-emerald-500">Alchemy</span> <br/>
+                & Scale.
+              </h1>
+              <div className="flex flex-col md:flex-row gap-8 md:gap-20 items-start border-t border-white/10 pt-8">
+                <p className="font-mono text-xs text-[#ccff00] uppercase tracking-widest max-w-[150px]">
+                  // The Mission
+                </p>
+                <p className="text-xl md:text-2xl leading-relaxed max-w-2xl text-neutral-300">
+                  We are not a traditional agency. We are a strategic growth partner for ambitious brands. We fuse behavioral data with high-end aesthetics to build systems that dominate markets.
+                </p>
               </div>
-              <h2 className="text-5xl md:text-6xl font-bold mb-8 leading-none">
-                The Machine <br/> That Never Sleeps.
-              </h2>
-              <p className="text-neutral-400 text-lg mb-8 leading-relaxed">
-                Imagine a sales team that works 24/7/365, speaks 40 languages, and never asks for a raise. That is what we build.
-              </p>
-              <ul className="space-y-4 font-mono text-sm text-neutral-300">
-                <li className="flex items-center gap-4">
-                  <div className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"/> 
-                  Lead Capture (Instant)
-                </li>
-                <li className="flex items-center gap-4">
-                  <div className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"/> 
-                  CRM Injection (0.4ms)
-                </li>
-                <li className="flex items-center gap-4">
-                  <div className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"/> 
-                  AI SMS Follow-up (1 min delay)
-                </li>
-              </ul>
             </div>
 
-            {/* Right Visual (Abstract Representation) */}
-            <div className="relative h-[500px] border border-white/10 bg-white/[0.02] rounded-3xl p-8 flex flex-col justify-between overflow-hidden group">
-               <div className="absolute top-0 right-0 w-64 h-64 bg-[#ccff00]/10 rounded-full blur-[80px] -translate-y-1/2 translate-x-1/2 group-hover:bg-[#ccff00]/20 transition-all duration-1000"></div>
-               
-               <div className="grid grid-cols-2 gap-4 opacity-50">
-                 <div className="h-32 bg-white/5 rounded-xl animate-pulse"></div>
-                 <div className="h-32 bg-white/5 rounded-xl animate-pulse" style={{animationDelay: '0.2s'}}></div>
-                 <div className="h-32 bg-white/5 rounded-xl animate-pulse" style={{animationDelay: '0.4s'}}></div>
-                 <div className="h-32 bg-white/5 rounded-xl animate-pulse" style={{animationDelay: '0.6s'}}></div>
+            {/* Right Column: The Visual Hook */}
+            <div className="col-span-12 md:col-span-4 flex flex-col justify-end">
+               <div className="relative aspect-square w-full overflow-hidden border border-white/10 group">
+                 <div className="absolute inset-0 bg-[#ccff00]/10 z-10 group-hover:bg-transparent transition-colors duration-500"></div>
+                 <img src="https://images.unsplash.com/photo-1485627941502-d2e6429fa8af?q=80&w=2672&auto=format&fit=crop" 
+                      className="w-full h-full object-cover grayscale group-hover:grayscale-0 scale-110 group-hover:scale-100 transition-all duration-700" alt="Strategy" />
+                 
+                 <div className="absolute bottom-4 left-4 z-20">
+                   <p className="font-mono text-xs bg-black text-[#ccff00] px-2 py-1">FIGURE 01.1</p>
+                 </div>
                </div>
-
-               <div className="font-mono text-xs text-[#ccff00]">
-                <div className="font-mono text-xs text-[#ccff00]">
-                 &gt; SYSTEM STATUS: OPTIMAL <br/>
-                 &gt; LEADS GENERATED TODAY: 142 <br/>
-                 &gt; REVENUE IMPACT: +$42,000
-               </div>
+               <div className="mt-4 flex justify-between items-end">
+                 <div className="font-mono text-xs text-neutral-500">
+                   SCROLL FOR DATA<br/>↓
+                 </div>
+                 <a href="#contact" className="w-12 h-12 border border-[#ccff00] rounded-full flex items-center justify-center hover:bg-[#ccff00] hover:text-black transition-all">
+                   ▼
+                 </a>
                </div>
             </div>
 
@@ -287,48 +77,172 @@ export default function Home() {
         </div>
       </section>
 
-      {/* CONTACT (Editorial Style) */}
-      <section id="contact" className="relative z-10 min-h-screen bg-[#ccff00] text-black py-32 px-6">
-        <div className="max-w-[1920px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-16">
-          <div>
-            <h2 className="text-[10vw] font-black leading-[0.8] mb-8 tracking-tighter">
-              LET'S <br/> BUILD.
-            </h2>
-            <p className="text-xl font-medium max-w-md">
-              We are selective. We only partner with brands ready to scale aggressively.
+      {/* STRATEGY GRID: High Content Density (Stormbrain Style) */}
+      <section id="strategy" className="relative z-10 border-b border-white/10">
+        <div className="grid grid-cols-1 md:grid-cols-4 divide-y md:divide-y-0 md:divide-x divide-white/10">
+          
+          {/* Box 1 */}
+          <div className="p-8 md:p-12 hover:bg-white/5 transition-colors group h-full">
+            <div className="font-mono text-xs text-[#ccff00] mb-32 group-hover:mb-4 transition-all duration-500">01 / DISCOVERY</div>
+            <h3 className="text-3xl font-bold mb-4">Radical Clarity.</h3>
+            <p className="text-sm text-gray-400 leading-relaxed">
+              We don't guess. We audit your entire digital footprint, analyze competitor weaknesses, and identify the "Blue Ocean" opportunity in your niche.
             </p>
           </div>
 
-          <div className="bg-black/5 p-8 md:p-16">
-             {/* PASTE YOUR LINK HERE */}
+          {/* Box 2 */}
+          <div className="p-8 md:p-12 hover:bg-white/5 transition-colors group h-full">
+            <div className="font-mono text-xs text-[#ccff00] mb-32 group-hover:mb-4 transition-all duration-500">02 / ARCHITECTURE</div>
+            <h3 className="text-3xl font-bold mb-4">System Design.</h3>
+            <p className="text-sm text-gray-400 leading-relaxed">
+              Building the funnel. We architect the user journey, design the automation workflows, and set up the tracking infrastructure.
+            </p>
+          </div>
+
+          {/* Box 3 */}
+          <div className="p-8 md:p-12 hover:bg-white/5 transition-colors group h-full">
+            <div className="font-mono text-xs text-[#ccff00] mb-32 group-hover:mb-4 transition-all duration-500">03 / EXECUTION</div>
+            <h3 className="text-3xl font-bold mb-4">High Velocity.</h3>
+            <p className="text-sm text-gray-400 leading-relaxed">
+              Launching ads, deploying content, and activating the AI agents. We move fast to gather data and validate the strategy.
+            </p>
+          </div>
+
+           {/* Box 4 */}
+           <div className="p-8 md:p-12 hover:bg-white/5 transition-colors group h-full">
+            <div className="font-mono text-xs text-[#ccff00] mb-32 group-hover:mb-4 transition-all duration-500">04 / OPTIMIZATION</div>
+            <h3 className="text-3xl font-bold mb-4">Profit Scale.</h3>
+            <p className="text-sm text-gray-400 leading-relaxed">
+              We kill what loses money. We double what makes money. Continuous A/B testing until we hit the ROAS (Return on Ad Spend) target.
+            </p>
+          </div>
+
+        </div>
+      </section>
+
+      {/* CAPABILITIES SECTION: The "What We Do" List */}
+      <section id="capabilities" className="relative z-10 py-32 px-4 md:px-12 border-b border-white/10 bg-[#080808]">
+        <div className="max-w-[1920px] mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-16">
+            
+            {/* Title */}
+            <div className="col-span-12 md:col-span-4">
+              <h2 className="text-6xl font-black tracking-tighter uppercase sticky top-32">
+                Capabilities<span className="text-[#ccff00]">.</span>
+              </h2>
+            </div>
+
+            {/* The List */}
+            <div className="col-span-12 md:col-span-8 space-y-20">
+              
+              {/* Category 1 */}
+              <div className="group">
+                <h3 className="text-2xl font-mono text-[#ccff00] mb-8 uppercase border-b border-white/10 pb-4">Strategy & Consulting</h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                  <div>
+                    <h4 className="text-3xl font-bold mb-4">Brand Positioning</h4>
+                    <p className="text-gray-400 text-sm leading-relaxed">Defining your voice, your visual identity, and exactly why customers should choose you over competitors.</p>
+                  </div>
+                  <div>
+                    <h4 className="text-3xl font-bold mb-4">Go-To-Market</h4>
+                    <p className="text-gray-400 text-sm leading-relaxed">A step-by-step playbook on how to launch your product or service to a new audience.</p>
+                  </div>
+                </div>
+              </div>
+
+               {/* Category 2 */}
+               <div className="group">
+                <h3 className="text-2xl font-mono text-[#ccff00] mb-8 uppercase border-b border-white/10 pb-4">Digital Experience</h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                  <div>
+                    <h4 className="text-3xl font-bold mb-4">Web Development</h4>
+                    <p className="text-gray-400 text-sm leading-relaxed">Next.js & React based platforms. Lightning fast, SEO optimized, and designed to convert traffic into leads.</p>
+                  </div>
+                  <div>
+                    <h4 className="text-3xl font-bold mb-4">Automation Engineering</h4>
+                    <p className="text-gray-400 text-sm leading-relaxed">Zapier, Make.com, and Custom AI Agents that handle customer service and lead nurturing 24/7.</p>
+                  </div>
+                </div>
+              </div>
+
+               {/* Category 3 */}
+               <div className="group">
+                <h3 className="text-2xl font-mono text-[#ccff00] mb-8 uppercase border-b border-white/10 pb-4">Performance</h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                  <div>
+                    <h4 className="text-3xl font-bold mb-4">Paid Acquisition</h4>
+                    <p className="text-gray-400 text-sm leading-relaxed">Meta (Facebook/Instagram) and Google Ads management focusing purely on CPA (Cost Per Acquisition).</p>
+                  </div>
+                  <div>
+                    <h4 className="text-3xl font-bold mb-4">Content Production</h4>
+                    <p className="text-gray-400 text-sm leading-relaxed">High-fidelity video and static assets designed specifically to stop the scroll on social media.</p>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FORM SECTION: Brutalist & Direct */}
+      <section id="contact" className="relative z-10 grid grid-cols-1 md:grid-cols-2 min-h-screen">
+        
+        {/* Left: The Statement */}
+        <div className="bg-[#ccff00] text-black p-12 md:p-24 flex flex-col justify-between">
+          <div>
+            <h2 className="text-7xl md:text-9xl font-black tracking-tighter uppercase leading-[0.8] mb-8">
+              Let's<br/>Talk<br/>Numbers.
+            </h2>
+            <p className="text-2xl font-bold max-w-md">
+              We only partner with 3 new clients per month to maintain elite standards.
+            </p>
+          </div>
+          <div className="space-y-2 font-mono text-sm mt-12 border-t border-black/20 pt-8">
+             <p>INQUIRIES:</p>
+             <p className="text-xl font-bold">HELLO@GSDIGITAL.COM</p>
+          </div>
+        </div>
+
+        {/* Right: The Form */}
+        <div className="bg-[#050505] p-12 md:p-24 flex flex-col justify-center border-l border-white/10">
+           {/* 
+                ⚠️ PASTE YOUR FORMSPREE LINK IN THE ACTION BELOW 
+            */}
             <form action="PASTE_YOUR_FORMSPREE_LINK_HERE" method="POST" className="space-y-12">
-              <div className="relative border-b border-black/20 focus-within:border-black transition-colors">
-                <input required name="name" type="text" className="w-full bg-transparent py-4 text-2xl font-bold placeholder-black/30 focus:outline-none" placeholder="Your Name" />
+              
+              <div className="group relative">
+                <input required name="name" type="text" className="w-full bg-transparent border-b border-white/20 py-4 text-2xl font-bold focus:outline-none focus:border-[#ccff00] transition-colors placeholder-transparent" placeholder="Name" id="name" />
+                <label htmlFor="name" className="absolute left-0 top-0 text-gray-500 text-xs font-mono uppercase transition-all group-focus-within:-top-6 group-focus-within:text-[#ccff00]">01 // What is your name?</label>
               </div>
-              <div className="relative border-b border-black/20 focus-within:border-black transition-colors">
-                <input required name="email" type="email" className="w-full bg-transparent py-4 text-2xl font-bold placeholder-black/30 focus:outline-none" placeholder="Email Address" />
+
+              <div className="group relative">
+                <input required name="email" type="email" className="w-full bg-transparent border-b border-white/20 py-4 text-2xl font-bold focus:outline-none focus:border-[#ccff00] transition-colors placeholder-transparent" placeholder="Email" id="email" />
+                <label htmlFor="email" className="absolute left-0 top-0 text-gray-500 text-xs font-mono uppercase transition-all group-focus-within:-top-6 group-focus-within:text-[#ccff00]">02 // Where can we email you?</label>
               </div>
-              <div className="relative border-b border-black/20 focus-within:border-black transition-colors">
-                <textarea required name="message" rows={3} className="w-full bg-transparent py-4 text-2xl font-bold placeholder-black/30 focus:outline-none resize-none" placeholder="Project Brief"></textarea>
+
+              <div className="group relative">
+                <input required name="company" type="text" className="w-full bg-transparent border-b border-white/20 py-4 text-2xl font-bold focus:outline-none focus:border-[#ccff00] transition-colors placeholder-transparent" placeholder="Company" id="company" />
+                <label htmlFor="company" className="absolute left-0 top-0 text-gray-500 text-xs font-mono uppercase transition-all group-focus-within:-top-6 group-focus-within:text-[#ccff00]">03 // Company / Website URL</label>
               </div>
-              <button type="submit" className="w-full bg-black text-white py-6 font-bold uppercase tracking-widest hover:bg-white hover:text-black transition-all">
+
+               <div className="group relative">
+                <textarea required name="message" rows={2} className="w-full bg-transparent border-b border-white/20 py-4 text-2xl font-bold focus:outline-none focus:border-[#ccff00] transition-colors placeholder-transparent resize-none" placeholder="Message" id="message"></textarea>
+                <label htmlFor="message" className="absolute left-0 top-0 text-gray-500 text-xs font-mono uppercase transition-all group-focus-within:-top-6 group-focus-within:text-[#ccff00]">04 // Tell us about the project</label>
+              </div>
+
+              <button type="submit" className="w-full py-6 bg-white text-black font-black uppercase tracking-widest hover:bg-[#ccff00] transition-colors mt-8 text-xl">
                 Submit Application
               </button>
             </form>
-          </div>
         </div>
+
       </section>
 
-      {/* FOOTER */}
-      <footer className="bg-black py-12 px-6 border-t border-white/10 text-center md:text-left">
-        <div className="max-w-[1920px] mx-auto flex flex-col md:flex-row justify-between items-center text-xs font-mono text-neutral-500 uppercase tracking-widest">
-           <p>GS Digital Systems © 2026</p>
-           <div className="flex gap-8 mt-4 md:mt-0">
-             <a href="#" className="hover:text-white">Legal</a>
-             <a href="#" className="hover:text-white">Twitter</a>
-             <a href="#" className="hover:text-white">LinkedIn</a>
-           </div>
-        </div>
+      <footer className="bg-black py-6 px-12 border-t border-white/10 flex justify-between items-center text-[10px] text-gray-600 font-mono uppercase tracking-widest">
+        <span>GS Digital Systems © 2026</span>
+        <span>Mumbai / Global</span>
+        <span>Privacy Protocol</span>
       </footer>
 
     </div>
