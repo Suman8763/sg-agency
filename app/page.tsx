@@ -81,6 +81,74 @@ export default function Home() {
             <span>SaaS</span>
         </div>
       </section>
+      {/* STATS SECTION (The BrandSparc Trust Factor) */}
+      <section className="py-20 border-b border-white/5 bg-neutral-900/30">
+        <div className="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+          <div className="p-6">
+            <h3 className="text-4xl md:text-5xl font-bold text-white mb-2">12+</h3>
+            <p className="text-neutral-500 text-sm uppercase tracking-widest">Active Clients</p>
+          </div>
+          <div className="p-6 border-l border-white/5">
+            <h3 className="text-4xl md:text-5xl font-bold text-white mb-2">$4M+</h3>
+            <p className="text-neutral-500 text-sm uppercase tracking-widest">Revenue Generated</p>
+          </div>
+          <div className="p-6 border-l border-white/5">
+            <h3 className="text-4xl md:text-5xl font-bold text-white mb-2">24/7</h3>
+            <p className="text-neutral-500 text-sm uppercase tracking-widest">AI Support Active</p>
+          </div>
+          <div className="p-6 border-l border-white/5">
+            <h3 className="text-4xl md:text-5xl font-bold text-white mb-2">3x</h3>
+            <p className="text-neutral-500 text-sm uppercase tracking-widest">Avg. ROI</p>
+          </div>
+        </div>
+      </section>
+
+      {/* THE "AUTOMATION WORKFLOW" VISUAL (The Feature You Wanted) */}
+      <section className="py-24 px-6 relative overflow-hidden">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">How It Works</h2>
+            <p className="text-neutral-400">We replace manual chaos with automated precision.</p>
+          </div>
+
+          <div className="relative">
+            {/* Connecting Line (Desktop Only) */}
+            <div className="hidden md:block absolute top-1/2 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-violet-500 to-transparent -translate-y-1/2 opacity-30"></div>
+
+            <div className="grid md:grid-cols-4 gap-8 relative z-10">
+              
+              {/* Step 1 */}
+              <div className="group bg-neutral-900 border border-white/10 p-8 rounded-2xl hover:-translate-y-2 transition-all duration-300">
+                <div className="w-12 h-12 bg-neutral-800 rounded-full flex items-center justify-center text-xl mb-6 group-hover:bg-violet-600 transition-colors">1</div>
+                <h3 className="text-xl font-bold text-white mb-3">Connect Data</h3>
+                <p className="text-sm text-neutral-400">We link your CRM, Website, and Ads into one central brain.</p>
+              </div>
+
+              {/* Step 2 */}
+              <div className="group bg-neutral-900 border border-white/10 p-8 rounded-2xl hover:-translate-y-2 transition-all duration-300 delay-100">
+                <div className="w-12 h-12 bg-neutral-800 rounded-full flex items-center justify-center text-xl mb-6 group-hover:bg-fuchsia-600 transition-colors">2</div>
+                <h3 className="text-xl font-bold text-white mb-3">Build AI Agents</h3>
+                <p className="text-sm text-neutral-400">We train AI bots to answer FAQs and book meetings instantly.</p>
+              </div>
+
+              {/* Step 3 */}
+              <div className="group bg-neutral-900 border border-white/10 p-8 rounded-2xl hover:-translate-y-2 transition-all duration-300 delay-200">
+                <div className="w-12 h-12 bg-neutral-800 rounded-full flex items-center justify-center text-xl mb-6 group-hover:bg-blue-600 transition-colors">3</div>
+                <h3 className="text-xl font-bold text-white mb-3">Launch Traffic</h3>
+                <p className="text-sm text-neutral-400">We turn on high-intent ads to flood the system with leads.</p>
+              </div>
+
+              {/* Step 4 */}
+              <div className="group bg-neutral-900 border border-white/10 p-8 rounded-2xl hover:-translate-y-2 transition-all duration-300 delay-300">
+                <div className="w-12 h-12 bg-neutral-800 rounded-full flex items-center justify-center text-xl mb-6 group-hover:bg-green-500 transition-colors">4</div>
+                <h3 className="text-xl font-bold text-white mb-3">Auto-Close</h3>
+                <p className="text-sm text-neutral-400">You wake up to booked appointments and new sales.</p>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* NEW: AI AUTOMATION SECTION (The "Market Trend" Feature) */}
       <section id="automation" className="py-24 px-6 relative">
